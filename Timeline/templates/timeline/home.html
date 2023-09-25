@@ -1,0 +1,168 @@
+{% extends 'Timeline/padre.html' %}
+{% load static %}
+
+{% block welcome %} Welcome to {% endblock%}
+
+{% block title %} Timeline {% endblock %}
+
+
+
+{% block signIn %}
+<form action= '/Timeline/usersFormulario/' method = 'POST' > {% csrf_token %}
+
+    
+
+    <p> Nombre: <input type= 'text' name='userName'> </p>
+    
+    <p> Password: <input type= 'text' name = 'userPass'> </p>
+
+    <p> Email: <input type= 'Email' name= 'userEmail'> </p>
+
+    <input type= 'submit' value = 'confirm'>
+
+</form>
+
+{% endblock%}
+
+
+{% block search %}
+
+<form action = '/Timeline/usersResults/' method = 'GET'>
+
+    <input type="text" name="name" id="name">
+
+    <input type="submit" value="search" >
+
+
+</form>
+
+
+
+{% for usuario in users %}
+
+        <p> Nombre: {{usuario.name}} --- Email: {{usuario.email}} </p>
+
+    {% endfor %}
+
+
+{% endblock %}
+<!--{% block yellow %}
+<a class="btn btn-primary btn-xl text-uppercase" href="#services">Get Started</a>
+{%endblock %}-->
+
+{% block event%}
+
+<form action= '/Timeline/eventsFormulario/' method = 'POST' > {% csrf_token %}
+
+    <h1> agregar evento </h1>
+
+    <p> Nombre: <input type= 'text' name='name'> </p>
+    
+    <p> Descripción: <input type= 'text' name = 'eventDescript'> </p>
+
+    <p> Fecha: <input type= 'date' name= 'eventDate'> </p>
+
+    <input type= 'submit' value = 'confirm'>
+
+</form>
+
+{% endblock %}
+
+
+{% block period %}
+
+<form action= '/Timeline/periodsFormulario/' method = 'POST' > {% csrf_token %}
+
+    <h1> agregar período </h1>
+
+    <p> Nombre: <input type= 'text' name='periodName'> </p>
+    
+    <p> Descripción: <input type= 'text' name = 'periodDescript'> </p>
+
+    <p> Fecha de inicio: <input type= 'date' name= 'periodDate1'> </p>
+    
+    <p> Fecha de finalización: <input type= 'date' name= 'periodDate2'> </p>
+
+    <input type= 'submit' value = 'create'>
+
+</form>
+
+{% endblock %}
+
+<!-- BUSCAR -->
+
+
+{% block searchEvent %}
+
+<h2> Buscar evento por nombre: </h2>
+
+<form action = '/Timeline/eventsResults/' method = 'GET'>
+
+    
+    <input type="text" name="name" id="name">
+
+    <input type="submit" value="search" >
+
+   
+</form>
+
+    {% for evento in event %}
+
+        <p> Nombre: {{evento.name}} --- Fecha: {{evento.date}} </p>
+
+    {% endfor %}
+
+
+   
+
+{% endblock%}
+
+
+
+{% block dayEvent %}
+<h2> Buscar evento por fecha: </h2>
+
+<form action = '/Timeline/dayResults/' method = 'GET'>
+   
+    <input type="date" name="eventDate" id="eventDate">
+
+    <input type="submit" value="search" >
+ 
+</form>
+
+
+    {% for fecha in fechas %}
+
+    <p> Fecha: {{fecha.date}} --- Nombre: {{fecha.name}} </p>
+
+    {% endfor%}
+
+
+{% endblock%}
+
+
+{% block searchPeriod%}
+
+<form action = '/Timeline/periodsResults/' method = 'GET'>
+   
+    <h2> Buscar período por nombre: </h2>
+    
+    <input type="text" name="periodName" id="periodName">
+
+    <input type="submit" value="search" >
+ 
+</form>
+
+
+
+{% for periodo in period %}
+
+    <p> Nombre: {{periodo.name}} --- Fechas: desde {{periodo.date1}}, hasta {{periodo.date2}}</p>
+
+{% endfor %}
+
+
+
+{% endblock%}
+
+

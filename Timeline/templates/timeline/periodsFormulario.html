@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action= '/Timeline/periodsFormulario/' method = 'POST' > {% csrf_token %}
+
+        <h1> agregar período </h1>
+
+        <p> Nombre: <input type= 'text' name='periodName'> </p>
+        
+        <p> Descipción: <input type= 'text' name = 'periodDescript'> </p>
+
+        <p> Fecha de inicio: <input type= 'date' name= 'periodDate1'> </p>
+        
+        <p> Fecha de finalización: <input type= 'date' name= 'periodDate2'> </p>
+
+        <input type= 'submit' value = 'create'>
+
+    </form>
+
+        
+
+
+</body>
+</html>

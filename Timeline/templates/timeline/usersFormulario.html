@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action= '/Timeline/usersFormulario/' method = 'POST' > {% csrf_token %}
+
+        <h1> Crea tu usuario </h1>
+
+        <p> Nombre: <input type= 'text' name='userName'> </p>
+        
+        <p> Password: <input type= 'text' name = 'userPass'> </p>
+
+        <p> Email: <input type= 'Email' name= 'userEmail'> </p>
+
+        <input type= 'submit' value = 'confirm'>
+
+    </form>
+
+        
+
+
+</body>
+</html>
