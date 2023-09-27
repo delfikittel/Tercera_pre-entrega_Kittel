@@ -19,6 +19,5 @@ urlpatterns = [
 
     path('periodsFormulario/', periodsFormulario, name = 'periodsFormulario'),
     path('periodsSearch/', periodsSearch, name = 'periodsSearch'),
-    path('periodsResults/', periodsResults, name = 'periodsResults')
-
-]
+    path('periodsResults/', periodsResults, name = 'periodsResults'),
+    ]
